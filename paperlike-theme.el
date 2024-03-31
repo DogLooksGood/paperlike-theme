@@ -32,40 +32,39 @@
 
 (deftheme paperlike "A minimal light theme.")
 
-(defvar paperlike-theme-header-scales '(1.2 1.2 1.2 1.0 1.0 1.0 1.0)
-  "Scales for headers.")
-
 (let ((bg "#FFFFFF")
+      (bg-1 "#E8E8E8")
+      (bg-2 "#CFCFCF")
       (fg "#000000")
-      (cm "#666666")
-      (hl "#CFCFCF"))
+      (fg+1 "#666666")
+      (fg+2 "#8F8F8F"))
   (custom-theme-set-faces
    `paperlike
    ;; We don't specify default foreground/background in TTY.
    `(default                        ((t :background ,bg :foreground ,fg)))
    ;; Basics
    `(cursor                         ((t (:background ,fg))))
-   `(region                         ((t (:background ,hl))))
+   `(region                         ((t (:background ,bg-2))))
    `(hl-line                        ((t (:background ,bg))))
    `(fringe                         ((t (:background ,bg))))
    `(show-paren-match               ((t (:box (:line-width (-1 . -1))))))
    `(highlight                      ((t (:inverse-video t))))
    `(button                         ((t (:box (:line-width (-1 . -1))))))
    `(vertical-border                ((t ())))
-   `(window-divider                 ((t (:foreground ,cm))))
-   `(window-divider-first-pixel     ((t (:foreground ,cm))))
-   `(window-divider-last-pixel      ((t (:foreground ,cm))))
-   `(line-number                    ((t (:foreground ,cm))))
+   `(window-divider                 ((t (:foreground ,fg+1))))
+   `(window-divider-first-pixel     ((t (:foreground ,fg+1))))
+   `(window-divider-last-pixel      ((t (:foreground ,fg+1))))
+   `(line-number                    ((t (:foreground ,fg+1))))
    `(line-number-current-line       ((t (:foreground ,fg))))
-   `(parenthesis                    ((t (:foreground ,fg))))
+   `(parenthesis                    ((t ())))
    `(completions-common-part        ((t ())))
    `(minibuffer-prompt              ((t ())))
-   `(lazy-highlight                 ((t (:background ,hl))))
+   `(lazy-highlight                 ((t (:background ,bg-2))))
    `(compilation-info               ((t ())))
    `(compilation-warning            ((t ())))
    `(warning                        ((t ())))
    `(match                          ((t (:inverse-video t))))
-   `(secondary-selection            ((t (:background ,hl :underline t))))
+   `(secondary-selection            ((t (:background ,bg-1))))
    `(help-key-binding               ((t ())))
    `(error                          ((t (:inverse-video t))))
 
@@ -74,16 +73,16 @@
    `(isearch-fail                   ((t (:inverse-video t))))
 
    ;; Font Locks
-   `(font-lock-comment-face         ((t (:foreground ,cm :italic t))))
-   `(font-lock-comment-delimiter-face         ((t (:foreground ,cm :italic t))))
-   `(font-lock-string-face          ((t (:foreground ,cm))))
-   `(font-lock-doc-face             ((t (:foreground ,cm :italic t))))
+   `(font-lock-comment-face         ((t (:foreground ,fg+1 :italic t))))
+   `(font-lock-comment-delimiter-face  ((t (:foreground ,fg+1 :italic t))))
+   `(font-lock-string-face          ((t (:foreground ,fg+1))))
+   `(font-lock-doc-face             ((t (:foreground ,fg+1 :italic t))))
    `(font-lock-builtin-face         ((t ())))
    `(font-lock-type-face            ((t ())))
    `(font-lock-variable-name-face   ((t ())))
-   `(font-lock-keyword-face         ((t ())))
+   `(font-lock-keyword-face         ((t (:bold t))))
    `(font-lock-constant-face        ((t ())))
-   `(font-lock-function-name-face   ((t (:bold t))))
+   `(font-lock-function-name-face   ((t (:background ,bg-1))))
    `(font-lock-warning-face         ((t ())))
    `(font-lock-preprocessor-face    ((t ())))
 
@@ -96,12 +95,12 @@
 
    ;; Mode Line
    `(mode-line                      ((t (:inverse-video t))))
-   `(mode-line-inactive             ((t (:background ,hl))))
+   `(mode-line-inactive             ((t (:background ,bg-2))))
 
    ;; Company
    `(company-tooltip-common         ((t ())))
    `(company-tooltip-common-selection ((t (:bold t))))
-   `(company-tooltip                ((t (:background ,hl))))
+   `(company-tooltip                ((t (:background ,bg-2))))
    `(company-tooltip-search         ((t ())))
    `(company-tooltip-selection      ((t (:inverse-video t))))
    `(company-tooltip-annotation     ((t ())))
@@ -110,7 +109,7 @@
    `(company-template-field         ((t (:inherit yas-field-highlight-face))))
 
    ;; Yasnippet
-   `(yas-field-highlight-face       ((t (:background ,hl))))
+   `(yas-field-highlight-face       ((t (:background ,bg-2))))
 
    ;; Meow
    `(meow-keypad-indicator          ((t ())))
@@ -134,7 +133,7 @@
    ;; `(magit-diff-file-heading-highlight ((t (:background ,bg+1))))
    `(magit-header-line                 ((t (:bold t))))
    `(magit-head                        ((t ())))
-   `(magit-section-highlight           ((t (:background ,hl))))
+   `(magit-section-highlight           ((t (:background ,bg-2))))
    `(magit-section-heading             ((t (:bold t))))
    `(magit-section-selection           ((t (:bold t))))
    ;; `(magit-diff-removed             ((t (:inherit font-lock-string-face))))
@@ -149,8 +148,8 @@
    ;; `(smerge-lower                   ((t (:background "#173017"))))
    ;;
    ;; Diff-hl
-   `(diff-hl-insert                 ((t (:foreground ,cm :background ,cm))))
-   `(diff-hl-change                 ((t (:foreground ,hl :background ,hl))))
+   `(diff-hl-insert                 ((t (:foreground ,fg+1 :background ,fg+1))))
+   `(diff-hl-change                 ((t (:foreground ,bg-2 :background ,bg-2))))
    `(diff-hl-delete                 ((t (:foreground ,fg :background ,fg))))
 
    `(eshell-prompt                  ((t (:bold t))))
@@ -189,13 +188,13 @@
    ;; `(css-selector                   ((t (:foreground ,purple))))
    ;;
    ;; ;; Markdown
-   ;; `(markdown-header-face-1         ((t (:bold t :height ,(nth 0 paperlike-theme-header-scales)))))
-   ;; `(markdown-header-face-2         ((t (:bold t :height ,(nth 1 paperlike-theme-header-scales)))))
-   ;; `(markdown-header-face-3         ((t (:bold t :height ,(nth 2 paperlike-theme-header-scales)))))
-   ;; `(markdown-header-face-4         ((t (:bold t :height ,(nth 3 paperlike-theme-header-scales)))))
-   ;; `(markdown-header-face-5         ((t (:bold t :height ,(nth 4 paperlike-theme-header-scales)))))
-   ;; `(markdown-header-face-6         ((t (:bold t :height ,(nth 5 paperlike-theme-header-scales)))))
-   ;; `(markdown-header-face-7         ((t (:bold t :height ,(nth 6 paperlike-theme-header-scales)))))
+   `(markdown-header-face-1         ((t (:bold t  :inherit variable-pitch-text))))
+   `(markdown-header-face-2         ((t (:bold t  :inherit variable-pitch-text))))
+   `(markdown-header-face-3         ((t (:inherit variable-pitch-text))))
+   `(markdown-header-face-4         ((t (:inherit variable-pitch-text))))
+   `(markdown-header-face-5         ((t (:inherit variable-pitch-text))))
+   `(markdown-header-face-6         ((t (:inherit variable-pitch-text))))
+   `(markdown-header-face-7         ((t (:inherit variable-pitch-text))))
    ;;
    ;; ;; Telega
    `(telega-entity-type-code        ((t ())))
@@ -203,24 +202,25 @@
    `(telega-unmuted-count           ((t ())))
    ;;
    ;; ;; Org-mode
-   `(org-document-title             ((t (:bold t :height ,(nth 0 paperlike-theme-header-scales)))))
+   `(org-document-title             ((t (:bold t :inherit variable-pitch-text))))
    `(org-link                       ((t (:underline t))))
    `(org-document-title             ((t ())))
    `(org-code                       ((t (:inherit font-lock-constant-face))))
-   `(org-level-1                    ((t (:bold t :height ,(nth 0 paperlike-theme-header-scales)))))
-   `(org-level-2                    ((t (:bold t :height ,(nth 1 paperlike-theme-header-scales)))))
-   `(org-level-3                    ((t (:bold t :height ,(nth 2 paperlike-theme-header-scales)))))
-   `(org-level-4                    ((t (:bold t :height ,(nth 3 paperlike-theme-header-scales)))))
-   `(org-level-5                    ((t (:bold t :height ,(nth 4 paperlike-theme-header-scales)))))
-   `(org-level-6                    ((t (:bold t :height ,(nth 5 paperlike-theme-header-scales)))))
-   `(org-level-7                    ((t (:bold t :height ,(nth 6 paperlike-theme-header-scales)))))
+   `(org-headline-done              ((t (:strike-through t :foreground ,fg+1))))
+   `(org-level-1                    ((t (:bold t :inherit variable-pitch-text))))
+   `(org-level-2                    ((t (:bold t :inherit variable-pitch-text))))
+   `(org-level-3                    ((t (:inherit variable-pitch-text))))
+   `(org-level-4                    ((t (:inherit variable-pitch-text))))
+   `(org-level-5                    ((t (:inherit variable-pitch-text))))
+   `(org-level-6                    ((t (:inherit variable-pitch-text))))
+   `(org-level-7                    ((t (:inherit variable-pitch-text))))
    ;;
    ;; ;; Treemacs
    ;; `(treemacs-root-face             ((t (:inherit font-lock-function-name-face :height 1.4 :underline t))))
-   `(fill-column-indicator          ((t (:foreground ,cm))))
+   `(fill-column-indicator          ((t (:foreground ,fg+1))))
    `(scroll-bar                     ((t (:foreground ,fg))))
-   `(sp-pair-overlay-face           ((t (:background ,hl))))
-   `(sp-wrap-overlay-face           ((t (:background ,hl))))
+   `(sp-pair-overlay-face           ((t (:background ,bg-2))))
+   `(sp-wrap-overlay-face           ((t (:background ,bg-2))))
 
    `(tab-bar                        ((t ())))
    `(tab-bar-tab-group-current      ((t ())))
