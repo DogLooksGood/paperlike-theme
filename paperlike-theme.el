@@ -224,6 +224,9 @@
    `(org-level-5                    ((t (:inherit variable-pitch-text))))
    `(org-level-6                    ((t (:inherit variable-pitch-text))))
    `(org-level-7                    ((t (:inherit variable-pitch-text))))
+
+   `(org-visual-indent-pipe-face       ((t (:height .1 :foreground "#000000" :background "#000000"))))
+   `(org-visual-indent-blank-pipe-face ((t (:height .1 :foreground "#FFFFFF" :background "#FFFFFF"))))
    ;;
    ;; ;; Treemacs
    ;; `(treemacs-root-face             ((t (:inherit font-lock-function-name-face :height 1.4 :underline t))))
