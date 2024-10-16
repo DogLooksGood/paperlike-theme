@@ -37,8 +37,9 @@
       (bg-2 "#C8C8C8")
       (bg-3 "#AFAFAF")
       (fg "#000000")
-      (fg+1 "#555555")
-      (fg+2 "#3F3F3F"))
+      (fg+1 "#3F3F3F")
+      (fg+2 "#555555")
+      (fg+3 "#777777"))
   (custom-theme-set-faces
    `paperlike
    ;; We don't specify default foreground/background in TTY.
